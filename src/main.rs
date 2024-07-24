@@ -13,7 +13,7 @@ fn main() {
     
     println!("In file {}", filename);
 
-    let mut f = File::open("").expect("File not found");
+    let mut f = File::open(filename).expect("File not found");
     let mut contents = String::new();
 
     f.read_to_string(&mut contents).expect("something went wrong reading the file");
