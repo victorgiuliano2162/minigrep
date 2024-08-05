@@ -30,9 +30,18 @@ fn main() {
     println!("Searching for {}", config.query);
     println!("In file {}", config.file_path);
 
-    let contents = fs::read_to_string(config.file_path).expect("Should have been able to read the file");
-    println!("With text:\n{}", contents);
+    //let contents = fs::read_to_string(config.file_path).expect("Should have been able to read the file");
+    //println!("With text:\n{}", contents);
 
+    run(config);
+    //Page 379, "Returning Erros from the run Function"
+
+}
+
+fn run(config: Config) {
+    let contents = fs::read_to_string(config.file_path).expect("Shoud have been able to read the file");
+
+    println!("With text:\n{contents}")
 }
 
 fn parse_config(args: &[String]) -> Config {
@@ -50,7 +59,7 @@ struct Config {
 impl Config {
     fn build(args: &[String]) -> Result<Config, &'static str> {
         if args.len() < 3 {
-            panic!("NOT ENOUGH ARGUMENTS");
+            return Err("NOT ENOUGH ARGUMENTS");
         }
         let query =args[1].clone();
         let file_path = args[2].clone();
