@@ -42,6 +42,6 @@ fn main() {
     }
 
 
-    //Page 379, "Returning Erros from the run Function"
+    //Page 394, "Writting a failure test for case-insensitive function"
 
 }
