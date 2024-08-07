@@ -1,5 +1,4 @@
 use std::{env, fs, process};
-use std::error::Error;
 use minigrep::{Config, run};
 
 fn main() {
@@ -29,8 +28,10 @@ fn main() {
         process::exit(1);
     });
 
+    /*  
     println!("Searching for {}", config.query);
-    println!("In file {}", config.file_path);
+    println!("In file {}", config.file_path); 
+    */
 
     //let contents = fs::read_to_string(config.file_path).expect("Should have been able to read the file");
     //println!("With text:\n{}", contents);
