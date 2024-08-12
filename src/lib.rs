@@ -60,7 +60,7 @@ pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a st
 
     for line in contents.lines() {
         if line.to_lowercase().contains(&query) {
-            println!(" a{line}a ");
+            //println!(" a{line}a ");
             v.push(line.trim())
             //for some reason, just two itens pushed to 
         }
