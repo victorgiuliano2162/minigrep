@@ -38,10 +38,23 @@ pub fn parse_config(args: &[String]) -> Config {
 
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     let mut v = Vec::new();
+
     for line in contents.lines() {
         if line.contains(query) {
             v.push(line.trim())
         } 
+    }
+    v
+}
+
+pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
+    let query = query.to_ascii_lowercase();
+    let mut v = Vec::new();
+
+    for line in contents.lines() {
+        if line.to_ascii_lowercase().contains(&query) {
+            v.push(line.trim())
+        }
     }
     v
 }
@@ -68,11 +81,11 @@ mod tests {
         Rust:
         safe, fast, productive.
         Pick three.
-        Duck tape.";
+        Duct tape.";
 
         assert_eq!(vec!["safe, fast, productive."], search(query, contents));
     }
-
+ 
     #[test]
     fn case_insensitive() {
         let query = "rUsT";
